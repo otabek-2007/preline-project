@@ -1,0 +1,27 @@
+{
+  "name": "preline-project",
+  "version": "1.0.0",
+  "description": "��#\u0000 \u0000p\u0000r\u0000e\u0000l\u0000i\u0000n\u0000e\u0000-\u0000p\u0000r\u0000o\u0000j\u0000e\u0000c\u0000t\u0000\r\u0000 \u0000",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/otabek-2007/preline-project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/otabek-2007/preline-project/issues"
+  },
+  "homepage": "https://github.com/otabek-2007/preline-project#readme",
+  "dependencies": {
+    "preline": "^2.5.1",
+    "tailwindcss": "^3.4.14"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.9"
+  }
+}
