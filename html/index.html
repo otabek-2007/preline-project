@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="uz">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Page Load</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@preline/preline/dist/preline.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <!-- Header bo‘limi -->
+    <div id="header"></div>
+
+    <!-- Navbar yoki boshqa tugmalar -->
+    <div id="navbar">
+        <button onclick="loadPage('home')">Home</button>
+        <button onclick="loadPage('about')">About</button>
+    </div>
+
+    <!-- Asosiy kontent bo‘limi -->
+    <div id="content" class="p-4"></div>
+
+    <!-- Footer bo‘limi -->
+    <div id="footer"></div>
+
+    <!-- JavaScript faylini ulash -->
+    <script src="/js/main.js"></script>
+</body>
+
+</html>
