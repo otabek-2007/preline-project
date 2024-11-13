@@ -1,7 +1,14 @@
+// tailwind.config.js
 module.exports = {
-  content: ["./src/html/**/*.html", "./src/js/**/*.js"],
-  theme: {
-    extend: {},
-  },
-  plugins: [],
-};
+  content: [
+    './src/css/**/*.{html,css}',
+    // './src/js/**/*.{html,js}',
+    './src/html/**/*.{html,js}',
+    './src/**/*.{html,js}',
+    'node_modules/preline/dist/*.js',
+  ],
+  plugins: [
+    // require('@tailwindcss/forms'),
+    require('preline/plugin'),
+  ],
+}

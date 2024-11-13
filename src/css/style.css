@@ -1,0 +1,52 @@
+.modal-search-container {
+    width: 750px;
+    height: 600px;
+}
+.carusel-image{
+    width: 33%;
+}
+/* Modal scroll container */
+.modal-scroll-style {
+    /* margin: 0px 0px 0px 10px; */
+    height: 100%;
+    max-height: 80vh; /* Modalning balandligi ekran balandligidan katta bo'lmasligi uchun */
+    overflow-y: auto; /* Vertikal scroll qo'shish */
+    scrollbar-width: 10px;
+    scrollbar-color: #6b7280 #e5e7eb; /* Scrollbar rangi */
+}
+
+/* Custom scrollbar styling for Webkit browsers (Chrome, Safari) */
+.modal-scroll-style::-webkit-scrollbar {
+    width: 8px; /* Scrollbarning kengligi */
+}
+
+.modal-scroll-style::-webkit-scrollbar-thumb {
+    background-color: #6b7280; /* Scrollbarning o'zi uchun rang */
+    border-radius: 4px; /* Yumshoq burchaklar */
+}
+
+.modal-scroll-style::-webkit-scrollbar-track {
+    background-color: #e5e7eb; /* Scrollbarning orqa fon rangi */
+    border-radius: 4px; /* Yumshoq burchaklar */
+}
+
+@media screen and (max-width: 1280px) {
+    .modal-search-container {
+        width: 100%;
+        padding: 10px;
+    }
+}
+@media screen and (max-width:770px){
+    .modal-scroll-style{
+        margin: 0px;
+    }
+}
+@media screen and (max-width:770px){
+    .carusel-image{
+        width: 100%;
+
+    }
+    .carusel-image-content{
+        flex-wrap: wrap;
+    }
+}
