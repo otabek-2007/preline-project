@@ -2,22 +2,17 @@
     width: 750px;
     height: 600px;
 }
-.carusel-image{
+.carusel-image {
     width: 33%;
 }
-/* Modal scroll container */
 .modal-scroll-style {
-    /* margin: 0px 0px 0px 10px; */
-    height: 100%;
     max-height: 80vh; /* Modalning balandligi ekran balandligidan katta bo'lmasligi uchun */
     overflow-y: auto; /* Vertikal scroll qo'shish */
-    scrollbar-width: 10px;
+    scrollbar-width:thin; /* Firefox uchun ingichka scrollbar */
     scrollbar-color: #6b7280 #e5e7eb; /* Scrollbar rangi */
 }
-
-/* Custom scrollbar styling for Webkit browsers (Chrome, Safari) */
 .modal-scroll-style::-webkit-scrollbar {
-    width: 8px; /* Scrollbarning kengligi */
+    width: 3px; /* Scrollbarning kengligi */
 }
 
 .modal-scroll-style::-webkit-scrollbar-thumb {
@@ -30,23 +25,29 @@
     border-radius: 4px; /* Yumshoq burchaklar */
 }
 
+.slider-btn{
+    padding: 20px;
+    display: flex;
+    height: 10px;
+    width: 10px;
+}
+
 @media screen and (max-width: 1280px) {
     .modal-search-container {
         width: 100%;
         padding: 10px;
     }
 }
-@media screen and (max-width:770px){
-    .modal-scroll-style{
+@media screen and (max-width: 770px) {
+    .modal-scroll-style {
         margin: 0px;
     }
 }
-@media screen and (max-width:770px){
-    .carusel-image{
+@media screen and (max-width: 500px) {
+    .carusel-image {
         width: 100%;
-
     }
-    .carusel-image-content{
+    .carusel-image-content {
         flex-wrap: wrap;
     }
 }

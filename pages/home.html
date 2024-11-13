@@ -1,24 +1,287 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dynamic Page Loading</title>
-    <link rel="stylesheet" href="/src/css/style.css">
     <link rel="stylesheet" href="/src/css/output.css">
+    <link rel="stylesheet" href="/src/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <style>
+        body {
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Light mode colors */
+        body.light-mode {
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        /* Dark mode colors */
+        body.dark-mode {
+            --tw-bg-opacity: 1;
+            background-color: rgb(23 23 23 / var(--tw-bg-opacity));
+            color: #e2e8f0;
+        }
+
+        /* Footer */
+        .footer {
+            background-color: #edf2f7;
+            color: #2d3748;
+        }
+
+        body.dark-mode .footer {
+            --tw-bg-opacity: 1;
+            background-color: rgb(23 23 23 / var(--tw-bg-opacity));
+            --tw-text-opacity: 1;
+            color: rgb(115 115 115 / var(--tw-text-opacity));
+        }
+
+        body.dark-mode .footer h3 {
+            color: white;
+        }
+
+        /* Button styling */
+        .dark-mode-toggle {
+            cursor: pointer;
+            font-size: 1.2em;
+        }
+
+
+        /* Link hover effect */
+        .footer a:hover {
+            --tw-text-opacity: 1;
+            color: rgb(115 115 115 / var(--tw-text-opacity));
+        }
+
+
+        body.dark-mode .footer a:hover {
+            --tw-text-opacity: 1;
+            color: rgb(115 115 115 / var(--tw-text-opacity));
+        }
+
+        .drop-down-header {
+            margin-top: 10px;
+        }
+
+        .header {
+            padding: 20px;
+            background-color: #edf2f7;
+            color: #2d3748;
+            transition: background-color 0.3s, color 0.3s;
+        }
+
+        /* Light mode for header */
+        .light-mode .header {
+            background-color: #f8f9fa;
+            color: #343a40;
+        }
+
+        /* Dark mode for header */
+        .dark-mode .header {
+            --tw-bg-opacity: 1;
+            background-color: rgb(23 23 23 / var(--tw-bg-opacity));
+            --tw-text-opacity: 1;
+            color: rgb(115 115 115 / var(--tw-text-opacity));
+        }
+
+        .dark-mode .drop-down-header {
+            --tw-bg-opacity: 1;
+            background-color: rgb(23 23 23 / var(--tw-bg-opacity));
+            --tw-text-opacity: 1;
+            color: rgb(115 115 115 / var(--tw-text-opacity));
+            border: 0px;
+        }
+
+        /* Dark mode header title */
+        .dark-mode .header h1,
+        .dark-mode .header h2,
+        .dark-mode .header h3 {
+            --tw-text-opacity: 1;
+            color: rgb(229 229 229 / var(--tw-text-opacity));
+        }
+
+        .dark-mode .drop-down-header h1,
+        .dark-mode .drop-down-header h2,
+        .dark-mode .drop-down-header h3 {
+            --tw-text-opacity: 1;
+            /* color: rgb(229 229 229 / var(--tw-text-opacity)); */
+        }
+
+        /* Header link hover effects */
+        .header a {
+            --tw-text-opacity: 1;
+            color: rgb(229 229 229 / var(--tw-text-opacity));
+            transition: color 0.3s;
+            text-decoration: none;
+        }
+
+        .light-mode .header a:hover {
+            color: #3182ce;
+        }
+
+        .dark-mode .header a {
+            --tw-text-opacity: 1;
+            color: rgb(229 229 229 / var(--tw-text-opacity));
+        }
+
+        .dark-mode .header a:hover {
+            color: #63b3ed;
+        }
+
+        .dark-mode .drop-down-header a:hover {
+            --tw-text-opacity: 1;
+            color: rgb(229 229 229 / var(--tw-text-opacity));
+        }
+
+        /* Dark mode toggle button in header */
+        .header .toggle-btn {
+            cursor: pointer;
+            padding: 0.5em;
+            border: none;
+            font-size: 1.5em;
+            background-color: transparent;
+            color: inherit;
+        }
+
+
+        .slider {
+            margin: auto;
+            position: relative;
+            width: 100%;
+            max-width: 1300px;
+            padding: 20px;
+            overflow: hidden;
+            border-radius: 20px;
+        }
+
+        .slide {
+            display: none;
+            width: 100%;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        .slide img {
+            width: 100%;
+            height: 640px;
+            border-radius: 20px;
+            object-fit: cover;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            text-align: center;
+            padding: 10px;
+        }
+
+        .overlay h2 {
+            font-size: 48px;
+            font-weight: bold;
+        }
+
+        .overlay p {
+            font-size: 18px;
+            margin-top: 10px;
+        }
+
+        .shop-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding-bottom: 3px;
+            color: white;
+            text-decoration: none;
+            border-bottom: 2px solid white;
+            transition: border-color 0.3s ease;
+        }
+
+        .shop-link:hover {
+            border-color: transparent;
+        }
+
+        .nav {
+            position: absolute;
+            top: 50%;
+            width: 50px;
+            height: 50px;
+            color: black;
+            font-size: 24px;
+            font-weight: bold;
+            background-color: rgba(255, 255, 255, 0.8);
+            border: none;
+            cursor: pointer;
+            border-radius: 50%;
+            transform: translateY(-50%);
+            transition: background-color 0.3s ease;
+        }
+
+        .nav:hover {
+            background-color: white;
+        }
+
+        .prev {
+            left: 30px;
+        }
+
+        .next {
+            right: 30px;
+        }
+
+        .counter {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: rgba(255, 255, 255, 0.9);
+            color: rgb(0, 0, 0);
+            padding: 3px 7px;
+            border-radius: 14px;
+            font-size: 13px;
+        }
+
+        .dark-mode {
+            background-color: #1a202c;
+            color: #e2e8f0;
+        }
+
+        .light-mode {
+            background-color: #f7fafc;
+            color: #2d3748;
+        }
+
+        /* Toggle button styling */
+        .toggle-btn {
+            cursor: pointer;
+            padding: 0.5em;
+            border: none;
+            font-size: 1.5em;
+            background-color: transparent;
+            color: inherit;
+        }
+    </style>
 </head>
 
-<body>
-    <!-- <div id="header">
-    </div> -->
+<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300 transition-colors duration-300">
+
+    <!-- Header -->
     <header
-        class="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white text-sm py-3 sm:py-0 dark:bg-neutral-800">
+        class="flex flex-wrap sm:justify-start sm:flex-nowrap z-50 w-full bg-white text-sm py-3 sm:py-0 dark:bg-neutral-900 header">
         <nav class="max-w-[85rem] w-full mx-auto px-4 md:px-6 lg:px-8 p-4">
             <div class="relative sm:flex sm:items-center">
                 <div class="flex items-center justify-between">
                     <a class="flex-none font-semibold text-xl text-black focus:outline-none focus:opacity-80 dark:text-white"
-                        href="#home" aria-label="Brand">
+                        href="/pages/home.html" aria-label="Brand">
                         <svg class="k5y6p hv68v" width="116" height="32" viewBox="0 0 116 32" fill="none"
                             xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -55,6 +318,10 @@
                                 <path d="m6 6 12 12" />
                             </svg>
                         </button>
+
+
+
+
                     </div>
                 </div>
 
@@ -73,7 +340,7 @@
                                 Pages
                             </button>
 
-                            <div class="w-full hs-dropdown-menu transition-[height] sm:transition-[opacity,margin] duration-300 ease-in-out sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full hidden z-10 sm:mt-3 top-full start-0 min-w-60 bg-white sm:shadow-md rounded-lg py-2 sm:px-2 dark:bg-neutral-800 sm:dark:border dark:border-neutral-700 dark:divide-neutral-700 before:absolute"
+                            <div class="w-full drop-down-header hs-dropdown-menu transition-[height] sm:transition-[opacity,margin] duration-300 ease-in-out sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full hidden z-10 sm:mt-3 top-full start-0 min-w-60 bg-white sm:shadow-md rounded-lg py-2 sm:px-2 dark:bg-neutral-800 sm:dark:border dark:border-neutral-700 dark:divide-neutral-700 before:absolute"
                                 role="menu" aria-orientation="vertical" aria-labelledby="hs-mega-menu">
                                 <div class="sm:grid sm:grid-cols-3">
                                     <div class="flex flex-col">
@@ -155,7 +422,7 @@
                                 Men
                             </button>
 
-                            <div class="w-full hs-dropdown-menu transition-[height] sm:transition-[opacity,margin] duration-300 ease-in-out sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full hidden z-10 sm:mt-3 top-full start-0 min-w-60 bg-white sm:shadow-md rounded-lg py-2 sm:px-2 dark:bg-neutral-800 sm:dark:border dark:border-neutral-700 dark:divide-neutral-700 before:absolute"
+                            <div class="w-full drop-down-header hs-dropdown-menu transition-[height] sm:transition-[opacity,margin] duration-300 ease-in-out sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full hidden z-10 sm:mt-3 top-full start-0 min-w-60 bg-white sm:shadow-md rounded-lg py-2 sm:px-2 dark:bg-neutral-800 sm:dark:border dark:border-neutral-700 dark:divide-neutral-700 before:absolute"
                                 role="menu" aria-orientation="vertical" aria-labelledby="hs-mega-menu">
                                 <div class="sm:grid sm:grid-cols-3">
                                     <div class="flex flex-col">
@@ -237,7 +504,7 @@
                                 Women
                             </button>
 
-                            <div class="w-full hs-dropdown-menu transition-[height] sm:transition-[opacity,margin] duration-300 ease-in-out sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full hidden z-10 sm:mt-3 top-full start-0 min-w-60 bg-white sm:shadow-md rounded-lg py-2 sm:px-2 dark:bg-neutral-800 sm:dark:border dark:border-neutral-700 dark:divide-neutral-700 before:absolute"
+                            <div class="w-full drop-down-header hs-dropdown-menu transition-[height] sm:transition-[opacity,margin] duration-300 ease-in-out sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full hidden z-10 sm:mt-3 top-full start-0 min-w-60 bg-white sm:shadow-md rounded-lg py-2 sm:px-2 dark:bg-neutral-800 sm:dark:border dark:border-neutral-700 dark:divide-neutral-700 before:absolute"
                                 role="menu" aria-orientation="vertical" aria-labelledby="hs-mega-menu">
                                 <div class="sm:grid sm:grid-cols-3">
                                     <div class="flex flex-col">
@@ -319,7 +586,7 @@
                                 Kids
                             </button>
 
-                            <div class="w-full hs-dropdown-menu transition-[height] sm:transition-[opacity,margin] duration-300 ease-in-out sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full hidden z-10 sm:mt-3 top-full start-0 min-w-60 bg-white sm:shadow-md rounded-lg py-2 sm:px-2 dark:bg-neutral-800 sm:dark:border dark:border-neutral-700 dark:divide-neutral-700 before:absolute"
+                            <div class="w-full drop-down-header hs-dropdown-menu transition-[height] sm:transition-[opacity,margin] duration-300 ease-in-out sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full hidden z-10 sm:mt-3 top-full start-0 min-w-60 bg-white sm:shadow-md rounded-lg py-2 sm:px-2 dark:bg-neutral-800 sm:dark:border dark:border-neutral-700 dark:divide-neutral-700 before:absolute"
                                 role="menu" aria-orientation="vertical" aria-labelledby="hs-mega-menu">
                                 <div class="sm:grid sm:grid-cols-3">
                                     <div class="flex flex-col">
@@ -401,7 +668,7 @@
                                 Home
                             </button>
 
-                            <div class="w-full hs-dropdown-menu transition-[height] sm:transition-[opacity,margin] duration-300 ease-in-out sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full hidden z-10 sm:mt-3 top-full start-0 min-w-60 bg-white sm:shadow-md rounded-lg py-2 sm:px-2 dark:bg-neutral-800 sm:dark:border dark:border-neutral-700 dark:divide-neutral-700 before:absolute"
+                            <div class="w-full drop-down-header hs-dropdown-menu transition-[height] sm:transition-[opacity,margin] duration-300 ease-in-out sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full hidden z-10 sm:mt-3 top-full start-0 min-w-60 bg-white sm:shadow-md rounded-lg py-2 sm:px-2 dark:bg-neutral-800 sm:dark:border dark:border-neutral-700 dark:divide-neutral-700 before:absolute"
                                 role="menu" aria-orientation="vertical" aria-labelledby="hs-mega-menu">
                                 <div class="sm:grid sm:grid-cols-3">
                                     <div class="flex flex-col">
@@ -476,14 +743,14 @@
                             </div>
                         </div>
                         <div
-                            class="hs-dropdown [--strategy:static] sm:[--strategy:absolute] [--adaptive:none] sm:[--trigger:hover] [--auto-close:false] [--is-collapse:true] sm:[--is-collapse:false]">
+                            class="hs-dropdown  [--strategy:static] sm:[--strategy:absolute] [--adaptive:none] sm:[--trigger:hover] [--auto-close:false] [--is-collapse:true] sm:[--is-collapse:false]">
                             <button id="hs-mega-menu" type="button"
                                 class="hs-dropdown-toggle sm:p-2 flex items-center w-full text-gray-600 font-medium hover:text-white-400 focus:outline-none focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500"
                                 aria-haspopup="menu" aria-expanded="false" aria-label="Mega Menu">
                                 Sales
                             </button>
 
-                            <div class="w-full hs-dropdown-menu transition-[height] sm:transition-[opacity,margin] duration-300 ease-in-out sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full hidden z-10 sm:mt-3 top-full start-0 min-w-60 bg-white sm:shadow-md rounded-lg py-2 sm:px-2 dark:bg-neutral-800 sm:dark:border dark:border-neutral-700 dark:divide-neutral-700 before:absolute"
+                            <div class="w-full drop-down-header hs-dropdown-menu transition-[height] sm:transition-[opacity,margin] duration-300 ease-in-out sm:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 w-full hidden z-10 sm:mt-3 top-full start-0 min-w-60 bg-white sm:shadow-md rounded-lg py-2 sm:px-2 dark:bg-neutral-800 sm:dark:border dark:border-neutral-700 dark:divide-neutral-700 before:absolute"
                                 role="menu" aria-orientation="vertical" aria-labelledby="hs-mega-menu">
                                 <div class="sm:grid sm:grid-cols-3">
                                     <div class="flex flex-col">
@@ -602,8 +869,7 @@
                                             </div>
                                         </div>
 
-                                        <div class="px-4 overflow-y-auto  modal-scroll-style"
-                                            >
+                                        <div class="px-4 overflow-y-auto  modal-scroll-style">
                                             <p class="mt-1 text-gray-800 dark:text-neutral-400 p-2">
                                                 Suggestions
                                             </p>
@@ -749,11 +1015,11 @@
                                                             </a>
                                                             <!-- End Card -->
                                                         </div>
-                                                        <div class="hs-carousel-slide active" style="width: 33%">
+                                                        <div class="hs-carousel-slide active carusel-image">
                                                             <!-- Card -->
                                                             <a class="group block relative "
                                                                 href="../../pro/shop/product-page.html">
-                                                                <img class=" flex rounded-lg dark:bg-neutral-800"
+                                                                <img class="flex rounded-lg dark:bg-neutral-800"
                                                                     src="https://images.unsplash.com/photo-1699595749116-33a4a869503c?q=80&amp;w=560&amp;h=380&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                                                                     alt="Product Image">
                                                                 <div class="absolute flex"
@@ -783,11 +1049,11 @@
                                                             </a>
                                                             <!-- End Card -->
                                                         </div>
-                                                        <div class="hs-carousel-slide active" style="width: 33%">
+                                                        <div class="hs-carousel-slide active carusel-image">
                                                             <!-- Card -->
                                                             <a class="group block relative "
                                                                 href="../../pro/shop/product-page.html">
-                                                                <img class=" flex rounded-lg dark:bg-neutral-800"
+                                                                <img class="flex rounded-lg dark:bg-neutral-800"
                                                                     src="https://images.unsplash.com/photo-1699595749116-33a4a869503c?q=80&amp;w=560&amp;h=380&amp;auto=format&amp;fit=crop&amp;ixlib=rb-4.0.3&amp;ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                                                                     alt="Product Image">
                                                                 <div class="absolute flex"
@@ -817,6 +1083,7 @@
                                                             </a>
                                                             <!-- End Card -->
                                                         </div>
+
 
                                                     </div>
                                                 </div>
@@ -859,19 +1126,240 @@
             </div>
         </nav>
     </header>
-    <div id="content">
+    <!-- Slider -->
+    <div class="slider">
+        <!-- Slides -->
+        <div class="slide active">
+            <img src="https://images.unsplash.com/photo-1713276753136-c386da1ec670?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Slide 1" />
+            <div class="overlay">
+                <h2>Winter Warmers</h2>
+                <p>Stay cozy with our winter collection.</p>
+                <a href="#" class="shop-link">Shop winter clothing</a>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1684144064253-bb3b4c8fc700?q=80&w=1000&auto=format&fit=crop"
+                alt="Slide 2" />
+            <div class="overlay">
+                <h2>Summer Essentials</h2>
+                <p>Enjoy the sun with our summer collection.</p>
+                <a href="#" class="shop-link">Shop summer clothing</a>
+            </div>
+        </div>
+        <div class="slide">
+            <img src="https://images.unsplash.com/photo-1603139635700-04637d0d16bd?q=80&w=1000&auto=format&fit=crop"
+                alt="Slide 3" />
+            <div class="overlay">
+                <h2>Autumn Comforts</h2>
+                <p>Get cozy with our autumn collection.</p>
+                <a href="#" class="shop-link">Shop autumn clothing</a>
+            </div>
+        </div>
 
+        <!-- Navigation buttons -->
+        <button class="nav prev">&#10094;</button>
+        <button class="nav next">&#10095;</button>
+
+        <!-- Slider Indicator -->
+        <div class="counter">
+            <span id="current-slide">1</span> / <span id="total-slides">3</span>
+        </div>
     </div>
+    <div class="avatars-images gap-x-4 flex flex-wrap w-full justify-center mt-5 py-3">
+        <a href="/pages/listing-grid-with-hero.html" class="flex flex-col text-center">
+            <img width="90px" class="inline-block size-[40px] rounded-full"
+                src="https://images.unsplash.com/photo-1706550632260-ced24a56f19a?q=80&w=180&h=180&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Avatar">
+            <span class="mt-2 dark:text-neutral-200">T-Shirts</span>
+        </a>
+        <a href="/pages/listing-grid-with-hero.html" class="flex flex-col text-center">
+            <img width="90px" class="inline-block size-[40px] rounded-full"
+                src="https://images.unsplash.com/photo-1668934807785-2772baa219a4?q=80&w=180&h=180&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Avatar">
+            <span class="mt-2 dark:text-neutral-200">Trousers</span>
+        </a>
+        <a href="/pages/listing-grid-with-hero.html" class="flex flex-col text-center">
+            <img width="90px" class="inline-block size-[40px] rounded-full"
+                src="https://images.unsplash.com/photo-1700853012811-ce0a42d2b6d3?q=80&w=180&h=180&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Avatar">
+            <span class="mt-2 dark:text-neutral-200">Shoes</span>
+        </a>
+        <a href="/pages/listing-grid-with-hero.html" class="flex flex-col text-center">
+            <img width="90px" class="inline-block size-[40px] rounded-full"
+                src="https://images.unsplash.com/photo-1571867424485-369464ed33cc?q=80&w=180&h=180&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                alt="Avatar">
+            <span class="mt-2 dark:text-neutral-200">Jackets</span>
+        </a>
+    </div>
+    <div class="flex justify-center flex-col text-center">
+        <h3 class="">Trending now</h3>
+        <div class="border-b border-gray-200 dark:border-neutral-700">
+            <nav class="flex gap-x-1" aria-label="Tabs" role="tablist" aria-orientation="horizontal">
+                <button type="button"
+                    class="hs-tab-active:bg-white hs-tab-active:border-b-transparent hs-tab-active:text-blue-600 dark:hs-tab-active:bg-neutral-800 dark:hs-tab-active:border-b-gray-800 dark:hs-tab-active:text-white -mb-px py-3 px-4 inline-flex items-center gap-x-2 bg-gray-50 text-sm font-medium text-center border text-gray-500 rounded-t-lg hover:text-gray-700 focus:outline-none focus:text-gray-700 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200 active"
+                    id="card-type-tab-item-1" aria-selected="true" data-hs-tab="#card-type-tab-preview"
+                    aria-controls="card-type-tab-preview" role="tab">
+                    Tab 1
+                </button>
+                <button type="button"
+                    class="hs-tab-active:bg-white hs-tab-active:border-b-transparent hs-tab-active:text-blue-600 dark:hs-tab-active:bg-neutral-800 dark:hs-tab-active:border-b-gray-800 dark:hs-tab-active:text-white -mb-px py-3 px-4 inline-flex items-center gap-x-2 bg-gray-50 text-sm font-medium text-center border text-gray-500 rounded-t-lg hover:text-gray-700 focus:outline-none focus:text-gray-700 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
+                    id="card-type-tab-item-2" aria-selected="false" data-hs-tab="#card-type-tab-2"
+                    aria-controls="card-type-tab-2" role="tab">
+                    Tab 2
+                </button>
+
+            </nav>
+        </div>
+
+        <div class="mt-3">
+            <div id="card-type-tab-preview" role="tabpanel" aria-labelledby="card-type-tab-item-1">
+                <p class="text-gray-500 dark:text-neutral-400">
+                    This is the <em class="font-semibold text-gray-800 dark:text-neutral-200">first</em> item's tab
+                    body.
+                </p>
+            </div>
+            <div id="card-type-tab-2" class="hidden" role="tabpanel" aria-labelledby="card-type-tab-item-2">
+                <p class="text-gray-500 dark:text-neutral-400">
+                    This is the <em class="font-semibold text-gray-800 dark:text-neutral-200">second</em> item's tab
+                    body.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <footer class="footer py-8 mt-8 border-t border-gray-300 dark:border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div>
+                <h2 class="text-lg font-semibold ">Subscribe & get 10% off</h2>
+                <form class="flex space-x-2">
+                    <input type="email" placeholder="Enter email address"
+                        class="px-4 py-2 rounded bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300 focus:outline-none">
+                    <button type="submit" class="px-4 py-2 bg-gray-700 dark:bg-gray-600 text-white rounded">Sign
+                        up</button>
+                </form>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Subscribe Section -->
 
 
-    <!-- <div id="footer"></div> -->
+                <!-- Help Section -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Help</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Help Center</a></li>
+                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">FAQs</a></li>
+                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Subscription</a></li>
+                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Order Status</a></li>
+                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Returns & Exchanges</a>
+                        </li>
+                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Contact Us</a></li>
+                    </ul>
+                </div>
 
-    <!-- Navbar or menu buttons -->
-    <button onclick="loadPage('home')">Home</button>
-    <button onclick="loadPage('about')">About</button>
+                <!-- Company Section -->
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Resources</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Gift Cards</a></li>
+                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Find a Store</a></li>
+                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Membership</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Company</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Newsroom</a></li>
+                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">New features</a></li>
+                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-4">Help</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Help Center</a></li>
+                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">FAQs</a></li>
+                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Subscription</a></li>
+                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Order Status</a></li>
+                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Returns & Exchanges</a>
+                        </li>
+                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
 
+            <!-- Bottom Footer -->
+            <div class="mt-8 pt-4 flex items-center">
+                <p>&copy; 2024 Preline Labs.</p>
+                <div class="space-x-4">
+                    <a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Terms</a>
+                    <a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Privacy</a>
+                    <a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Your Privacy Choices</a>
+                </div>
+                <button class="toggle-btn" onclick="toggleDarkMode()">
+                    <i id="darkModeIcon" class="fas"></i>
+                </button>
+            </div>
+        </div>
+    </footer>
     <script src="/node_modules/preline/dist/preline.js"></script>
-    <script src="/src/js/main.js"></script>
+
+    <!-- Scripts -->
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+
+        document.getElementById('total-slides').textContent = totalSlides;
+
+        document.querySelector('.next').addEventListener('click', () => {
+            changeSlide(currentSlide + 1);
+        });
+
+        document.querySelector('.prev').addEventListener('click', () => {
+            changeSlide(currentSlide - 1);
+        });
+
+        function changeSlide(newSlide) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (newSlide + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+        }
+
+        // Auto slide transition
+        setInterval(() => {
+            changeSlide(currentSlide + 1);
+        }, 5000);
+        document.addEventListener('DOMContentLoaded', () => {
+            const isDarkMode = localStorage.getItem('darkMode') === 'true';
+            document.body.classList.toggle('dark-mode', isDarkMode);
+            document.body.classList.toggle('light-mode', !isDarkMode);
+            updateIcon(isDarkMode);
+        });
+
+        function toggleDarkMode() {
+            const isDarkMode = !document.body.classList.contains("dark-mode");
+            document.body.classList.toggle("dark-mode", isDarkMode);
+            document.body.classList.toggle("light-mode", !isDarkMode);
+            localStorage.setItem("darkMode", isDarkMode);
+            updateIcon(isDarkMode);
+        }
+
+        function updateIcon(isDarkMode) {
+            const icon = document.getElementById("darkModeIcon");
+            if (isDarkMode) {
+                icon.classList.remove("fa-sun");
+                icon.classList.add("fa-moon");
+            } else {
+                icon.classList.remove("fa-moon");
+                icon.classList.add("fa-sun");
+            }
+        }
+    </script>
+
+    <!-- Font Awesome for Icons -->
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
 </body>
 
 </html>
