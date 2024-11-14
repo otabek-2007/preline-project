@@ -10,10 +10,14 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"> -->
     <style>
         body {
             transition: background-color 0.3s, color 0.3s;
+            width: 100%;
+            max-width: 1300px;
+            margin: auto;
         }
 
         /* Light mode colors */
@@ -153,8 +157,7 @@
         .slider {
             margin: auto;
             position: relative;
-            width: 100%;
-            max-width: 1300px;
+
             padding: 20px;
             overflow: hidden;
             border-radius: 20px;
@@ -300,120 +303,15 @@
             background-color: #f3f4f6;
         }
 
-        /* Basic slider styling */
-        .multi-slide-slider {
-            position: relative;
-            width: 100%;
-            max-width: 1300px;
-            margin: auto;
-            overflow: hidden;
-        }
 
-        .multi-slides-container {
-            display: flex;
-            gap: 20px;
-            transition: transform 0.5s ease;
-        }
-
-        .multi-slide {
-            width: 100%;
-            /* Adjust to fit as one full slide on small screens */
-            flex-shrink: 0;
-            position: relative;
-        }
-
-        .multi-slide img {
-            width: 100%;
-            height: auto;
-        }
-
-        /* Overlay styling */
-        .multi-overlay {
-            position: absolute;
-            bottom: 20px;
-            left: 20px;
-            color: white;
-            background-color: rgba(0, 0, 0, 0.5);
-            padding: 20px;
-        }
-
-        .multi-overlay h2 {
-            margin: 0;
-        }
-
-        .multi-overlay p {
-            margin: 10px 0;
-        }
-
-        .multi-shop-link {
-            color: #fff;
-            text-decoration: none;
-            background-color: #333;
-            padding: 10px;
-            border-radius: 5px;
-        }
-
-        /* Navigation buttons */
-        .multi-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .multi-nav.prev {
-            left: 10px;
-        }
-
-        .multi-nav.next {
-            right: 10px;
-        }
-
-        /* Responsive Layout */
-        @media (min-width: 768px) {
-            .multi-slide {
-                width: 25%;
-                /* Show 4 slides */
-            }
-        }
-
-        @media (max-width: 768px) {
-            .multi-slide {
-                width: 33.33%;
-                /* Show 3 slides */
-            }
-        }
-
-        @media (max-width: 576px) {
-            .multi-slide {
-                width: 50%;
-                /* Show 2 slides */
-            }
-        }
-
-        @media (max-width: 375px) {
-            .multi-slide {
-                width: 100%;
-                /* Show 1 slide */
-            }
-        }
-
-        /* Slider Counter */
-        .multi-counter {
-            position: absolute;
-            bottom: 20px;
-            right: 20px;
-            color: white;
-            font-size: 18px;
+        .hs-tab-active {
+            --tw-bg-opacity: 1;
+            background-color: rgb(64 64 64 / var(--tw-bg-opacity));
         }
     </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300 transition-colors duration-300">
+<body style="margin: auto;" class="bg-gray-100 text-gray-800 dark:bg-gray-900 dark:text-gray-300 transition-colors duration-300">
 
     <!-- Header -->
     <header
@@ -1309,80 +1207,448 @@
     </div>
     <div class="avatars-images gap-x-4 flex flex-wrap w-full justify-center mt-5 py-3">
         <a href="/pages/listing-grid-with-hero.html" class="flex flex-col text-center">
-            <img width="90px" class="inline-block size-[40px] rounded-full"
+            <img width="90px" class="inline-block size-[90px] rounded-full"
                 src="https://images.unsplash.com/photo-1706550632260-ced24a56f19a?q=80&w=180&h=180&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Avatar">
             <span class="mt-2 dark:text-neutral-200">T-Shirts</span>
         </a>
         <a href="/pages/listing-grid-with-hero.html" class="flex flex-col text-center">
-            <img width="90px" class="inline-block size-[40px] rounded-full"
+            <img width="90px" class="inline-block size-[90px] rounded-full"
                 src="https://images.unsplash.com/photo-1668934807785-2772baa219a4?q=80&w=180&h=180&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Avatar">
             <span class="mt-2 dark:text-neutral-200">Trousers</span>
         </a>
         <a href="/pages/listing-grid-with-hero.html" class="flex flex-col text-center">
-            <img width="90px" class="inline-block size-[40px] rounded-full"
+            <img width="90px" class="inline-block size-[90px] rounded-full"
                 src="https://images.unsplash.com/photo-1700853012811-ce0a42d2b6d3?q=80&w=180&h=180&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Avatar">
             <span class="mt-2 dark:text-neutral-200">Shoes</span>
         </a>
         <a href="/pages/listing-grid-with-hero.html" class="flex flex-col text-center">
-            <img width="90px" class="inline-block size-[40px] rounded-full"
+            <img width="90px" class="inline-block size-[90px] rounded-full"
                 src="https://images.unsplash.com/photo-1571867424485-369464ed33cc?q=80&w=180&h=180&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Avatar">
             <span class="mt-2 dark:text-neutral-200">Jackets</span>
         </a>
     </div>
-    <div class="multi-slide-slider">
-        <!-- Slides container -->
-        <div class="multi-slides-container">
-            <!-- Slide 1 -->
-            <div class="multi-slide active">
-                <img src="https://images.unsplash.com/photo-1713276753136-c386da1ec670?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="Slide 1" />
-                <div class="multi-overlay">
-                    <h2>Winter Warmers</h2>
-                    <p>Stay cozy with our winter collection.</p>
-                    <a href="#" class="multi-shop-link">Shop winter clothing</a>
+    <div class="flex justify-center w-full flex-col" style="height: 600px;">
+        <div class=" dark:border-neutral-700">
+            <nav class="-mb-0.5 flex justify-center gap-x-6" aria-label="Tabs" role="tablist"
+                aria-orientation="horizontal">
+                <div style="padding: 4px ; border-radius: 12px;" class="bg-gray-900">
+
+                    <button type="button"
+                        class="hs-tab-active:bg-gray-100 hs-tab-active:font-medium bg-gray-400 rounded-lg lg:px-8 py-3 dark:bg-transparent dark:hs-tab-active:bg-neutral-700 dark:hs-tab-active:text-neutral-200 hs-tab-active:bg-neutral-700 dark:focus:hs-tab-active:bg-neutral-600 dark:focus:hs-tab-active:text-neutral-200 dark:text-neutral-200 dark:focus:text-neutral-400"
+                        id="horizontal-alignment-item-1" aria-selected="true" data-hs-tab="#horizontal-alignment-1"
+                        aria-controls="horizontal-alignment-1" role="tab">
+                        Man
+                    </button>
+
+                    <button type="button"
+                        class="hs-tab-active:bg-gray-100 hs-tab-active:font-medium bg-transparent rounded-lg lg:px-8 py-3 dark:bg-transparent :hs-tab-active:bg-neutral-700 dark:hs-tab-active:after:bg-neutral-600 dark:focus:hs-tab-active:bg-neutral-600 dark:focus:hs-tab-active:text-neutral-200 dark:text-neutral-200 dark:focus:text-neutral-400"
+                        id="horizontal-alignment-item-2" aria-selected="false" data-hs-tab="#horizontal-alignment-2"
+                        aria-controls="horizontal-alignment-2" role="tab">
+                        Tab 2
+                    </button>
+
+
                 </div>
-            </div>
-            <!-- Slide 2 -->
-            <div class="multi-slide">
-                <img src="https://images.unsplash.com/photo-1713276753136-c386da1ec670?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="Slide 2" />
-                <div class="multi-overlay">
-                    <h2>Summer Essentials</h2>
-                    <p>Enjoy the sun with our summer collection.</p>
-                    <a href="#" class="multi-shop-link">Shop summer clothing</a>
-                </div>
-            </div>
-            <!-- Slide 3 -->
-            <div class="multi-slide">
-                <img src="https://images.unsplash.com/photo-1713276753136-c386da1ec670?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="Slide 3" />
-                <div class="multi-overlay">
-                    <h2>Autumn Comforts</h2>
-                    <p>Get cozy with our autumn collection.</p>
-                    <a href="#" class="multi-shop-link">Shop autumn clothing</a>
-                </div>
-            </div>
-            <!-- Slide 4 -->
-            <div class="multi-slide">
-                <img src="https://images.unsplash.com/photo-1713276753136-c386da1ec670?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                    alt="Slide 4" />
-                <div class="multi-overlay">
-                    <h2>Spring Blossoms</h2>
-                    <p>Freshen up with our spring collection.</p>
-                    <a href="#" class="multi-shop-link">Shop spring clothing</a>
-                </div>
-            </div>
+
+            </nav>
         </div>
 
-        <!-- Navigation buttons -->
-        <button class="multi-nav prev">&#10094;</button>
-        <button class="multi-nav next">&#10095;</button>
+        <div class="mt-3 h-full">
+            <div class="h-full" id="horizontal-alignment-1" role="tabpanel"
+                aria-labelledby="horizontal-alignment-item-1">
+                <!-- Slider -->
+                <div data-hs-carousel='{
+                    "loadingClasses": "opacity-0",
+                    "dotsItemClasses": "hs-carousel-active:bg-blue-700 hs-carousel-active:border-blue-700 size-3 border border-gray-400 rounded-full cursor-pointer dark:border-neutral-600 dark:hs-carousel-active:bg-blue-500 dark:hs-carousel-active:border-blue-500",
+                    "slidesQty": {
+                        "xs": 1,
+                        "lg": 4
+                         }
+                     }' class="relative h-full">
+                    <div class="hs-carousel h-full w-full overflow-hidden  rounded-lg">
+                        <div class="relative h-full min-h-72 -mx-1">
+                            <!-- transition-transform duration-700 -->
+                            <div
+                                class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap opacity-0 transition-transform duration-700">
+                                    <style>
+                                        .card {
+                                            width: 100%;
+                                            height: 100%;
+                                            /* background-color: #1e1e1e; */
+                                            border-radius: 8px;
+                                            padding: 10px;
+                                            color: #fff;
+                                            font-family: Arial, sans-serif;
+                                            position: relative;
+                                            overflow: hidden;
+                                            cursor: pointer;
+                                        }
 
+                                        /* Styling for the image */
+                                        .card img {
+                                            width: 100%;
+                                            height: 400px;
+                                            border-radius: 8px;
+                                        }
+
+                                        /* Trending label */
+                                        .card .trending-label {
+                                            position: absolute;
+                                            top: 20px;
+                                            left: 20px;
+                                            background-color: black;
+                                            color: #fff;
+                                            font-size: 12px;
+                                            font-weight: bold;
+                                            padding: 4px 8px;
+                                            border-radius: 12px;
+                                            display: flex;
+                                            align-items: center;
+                                            gap: 4px;
+                                        }
+
+                                        /* Eye icon (initially hidden) */
+                                        .eye {
+                                            position: absolute;
+                                            top: 40%;
+                                            background-color: white;
+                                            left: 50%;
+                                            padding: 10px;
+                                            transform: translate(-50%, -50%);
+                                            color: black;
+                                            font-size: 10px;
+                                            align-items: center;
+                                            gap: 4px;
+                                            display: none;
+                                            /* Hidden by default */
+                                            z-index: 10;
+                                        }
+
+                                        /* Show eye icon on hover */
+                                        .card:hover .eye {
+                                            display: flex;
+                                        }
+
+
+                                        /* Like button */
+                                        .card .like-button {
+                                            position: absolute;
+                                            top: 20px;
+                                            right: 20px;
+                                            background-color: rgba(0, 0, 0, 0.955);
+                                            border-radius: 50%;
+                                            padding: 4px 7px;
+                                            cursor: pointer;
+                                            transition: background-color 0.3s;
+                                        }
+
+                                        .card .like-button:hover {
+                                            background-color: rgba(255, 255, 255, 0.3);
+                                        }
+
+                                        /* Product details */
+                                        .card .details {
+                                            margin-top: 10px;
+                                        }
+
+                                        .card .details h3 {
+                                            margin: 0;
+                                            font-size: 16px;
+                                            /* font-weight: 600; */
+                                        }
+
+                                        .card .details p {
+                                            margin: 4px 0;
+                                            font-size: 14px;
+                                            color: #ccc;
+                                        }
+
+                                        .card .details .price {
+                                            font-size: 16px;
+                                            /* font-weight: bold; */
+                                            color: #fff;
+                                        }
+                                    </style>
+                                <div class="hs-carousel-slide px-1">
+
+                                    <div class="card">
+                                        <!-- Product Image -->
+                                        <img src="https://images.unsplash.com/photo-1708443683202-a5be0ced5b8b?q=80&w=560&h=780&auto=format&fit=crop"
+                                            alt="Product Image">
+
+                                        <!-- Trending Label -->
+                                        <div class="trending-label">
+                                            🔥 Trending
+                                        </div>
+
+                                        <!-- Eye Icon (centered) -->
+                                        <div class="eye rounded-lg">
+                                            <i class="fas fa-eye"></i> Quick view
+                                        </div>
+
+                                        <!-- Like Button -->
+                                        <div class="like-button">
+                                          <i class="fas fa-heart"></i>
+                                        </div>
+
+                                        <!-- Product Details -->
+                                        <div class="details">
+                                            <h3>Camo Blend Jacket</h3>
+                                            <p>Men's Jackets</p>
+                                            <p class="price">$140</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hs-carousel-slide px-1">
+
+                                    <div class="card">
+                                        <!-- Product Image -->
+                                        <img src="https://images.unsplash.com/photo-1708443683202-a5be0ced5b8b?q=80&w=560&h=780&auto=format&fit=crop"
+                                            alt="Product Image">
+
+                                        <!-- Trending Label -->
+                                        <div class="trending-label">
+                                            🔥 Trending
+                                        </div>
+
+                                        <!-- Eye Icon (centered) -->
+                                        <div class="eye rounded-lg">
+                                            <i class="fas fa-eye"></i> Quick view
+                                        </div>
+
+                                        <!-- Like Button -->
+                                        <div class="like-button">
+                                          <i class="fas fa-heart"></i>
+                                        </div>
+
+                                        <!-- Product Details -->
+                                        <div class="details">
+                                            <h3>Camo Blend Jacket</h3>
+                                            <p>Men's Jackets</p>
+                                            <p class="price">$140</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hs-carousel-slide px-1">
+
+                                    <div class="card">
+                                        <!-- Product Image -->
+                                        <img src="https://images.unsplash.com/photo-1708443683202-a5be0ced5b8b?q=80&w=560&h=780&auto=format&fit=crop"
+                                            alt="Product Image">
+
+                                        <!-- Trending Label -->
+                                        <div class="trending-label">
+                                            🔥 Trending
+                                        </div>
+
+                                        <!-- Eye Icon (centered) -->
+                                        <div class="eye rounded-lg">
+                                            <i class="fas fa-eye"></i> Quick view
+                                        </div>
+
+                                        <!-- Like Button -->
+                                        <div class="like-button">
+                                          <i class="fas fa-heart"></i>
+                                        </div>
+
+                                        <!-- Product Details -->
+                                        <div class="details">
+                                            <h3>Camo Blend Jacket</h3>
+                                            <p>Men's Jackets</p>
+                                            <p class="price">$140</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hs-carousel-slide px-1">
+
+                                    <div class="card">
+                                        <!-- Product Image -->
+                                        <img src="https://images.unsplash.com/photo-1708443683202-a5be0ced5b8b?q=80&w=560&h=780&auto=format&fit=crop"
+                                            alt="Product Image">
+
+                                        <!-- Trending Label -->
+                                        <div class="trending-label">
+                                            🔥 Trending
+                                        </div>
+
+                                        <!-- Eye Icon (centered) -->
+                                        <div class="eye rounded-lg">
+                                            <i class="fas fa-eye"></i> Quick view
+                                        </div>
+
+                                        <!-- Like Button -->
+                                        <div class="like-button">
+                                          <i class="fas fa-heart"></i>
+                                        </div>
+
+                                        <!-- Product Details -->
+                                        <div class="details">
+                                            <h3>Camo Blend Jacket</h3>
+                                            <p>Men's Jackets</p>
+                                            <p class="price">$140</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="hs-carousel-slide px-1">
+
+                                    <div class="card">
+                                        <!-- Product Image -->
+                                        <img src="https://images.unsplash.com/photo-1708443683202-a5be0ced5b8b?q=80&w=560&h=780&auto=format&fit=crop"
+                                            alt="Product Image">
+
+                                        <!-- Trending Label -->
+                                        <div class="trending-label">
+                                            🔥 Trending
+                                        </div>
+
+                                        <!-- Eye Icon (centered) -->
+                                        <div class="eye rounded-lg">
+                                            <i class="fas fa-eye"></i> Quick view
+                                        </div>
+
+                                        <!-- Like Button -->
+                                        <div class="like-button">
+                                          <i class="fas fa-heart"></i>
+                                        </div>
+
+                                        <!-- Product Details -->
+                                        <div class="details">
+                                            <h3>Camo Blend Jacket</h3>
+                                            <p>Men's Jackets</p>
+                                            <p class="price">$140</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button"
+                        class="hs-carousel-prev hs-carousel-disabled:opacity-50 hs-carousel-disabled:pointer-events-none absolute inset-y-0 start-0 inline-flex justify-center items-center w-[46px] h-full text-gray-800 hover:bg-gray-800/10 focus:outline-none focus:bg-gray-800/10 rounded-s-lg dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10">
+                        <span class="text-2xl" aria-hidden="true">
+                            <svg class="shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m15 18-6-6 6-6"></path>
+                            </svg>
+                        </span>
+                        <span class="sr-only">Previous</span>
+                    </button>
+                    <button type="button"
+                        class="hs-carousel-next hs-carousel-disabled:opacity-50 hs-carousel-disabled:pointer-events-none absolute inset-y-0 end-0 inline-flex justify-center items-center w-[46px] h-full text-gray-800 hover:bg-gray-800/10 focus:outline-none focus:bg-gray-800/10 rounded-e-lg dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10">
+                        <span class="sr-only">Next</span>
+                        <span class="text-2xl" aria-hidden="true">
+                            <svg class="shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m9 18 6-6-6-6"></path>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+                <!-- End Slider -->
+            </div>
+            <div id="horizontal-alignment-2" class="hidden" role="tabpanel"
+                aria-labelledby="horizontal-alignment-item-2">
+                <!-- Slider -->
+                <div data-hs-carousel='{
+    "loadingClasses": "opacity-0",
+    "dotsItemClasses": "hs-carousel-active:bg-blue-700 hs-carousel-active:border-blue-700 size-3 border border-gray-400 rounded-full cursor-pointer dark:border-neutral-600 dark:hs-carousel-active:bg-blue-500 dark:hs-carousel-active:border-blue-500",
+    "slidesQty": {
+      "xs": 1,
+      "lg": 4
+    }
+  }' class="relative">
+                    <div class="hs-carousel w-full overflow-hidden bg-white rounded-lg">
+                        <div class="relative min-h-72 -mx-1">
+                            <!-- transition-transform duration-700 -->
+                            <div
+                                class="hs-carousel-body absolute top-0 bottom-0 start-0 flex flex-nowrap opacity-0 transition-transform duration-700">
+                                <div class="hs-carousel-slide px-1">
+                                    <div class="flex justify-center h-full bg-gray-100 p-6 dark:bg-neutral-900">
+                                        <span
+                                            class="self-center text-sm text-gray-800 transition duration-700 dark:text-white">First
+                                            slide</span>
+                                    </div>
+                                </div>
+                                <div class="hs-carousel-slide px-1">
+                                    <div class="flex justify-center h-full bg-gray-200 p-6 dark:bg-neutral-800">
+                                        <span
+                                            class="self-center text-sm text-gray-800 transition duration-700 dark:text-white">Second
+                                            slide</span>
+                                    </div>
+                                </div>
+                                <div class="hs-carousel-slide px-1">
+                                    <div class="flex justify-center h-full bg-gray-300 p-6 dark:bg-neutral-700">
+                                        <span
+                                            class="self-center text-sm text-gray-800 transition duration-700 dark:text-white">Third
+                                            slide</span>
+                                    </div>
+                                </div>
+                                <div class="hs-carousel-slide px-1">
+                                    <div class="flex justify-center h-full bg-gray-100 p-6 dark:bg-neutral-900">
+                                        <span
+                                            class="self-center text-sm text-gray-800 transition duration-700 dark:text-white">Fourth
+                                            slide</span>
+                                    </div>
+                                </div>
+                                <div class="hs-carousel-slide px-1">
+                                    <div class="flex justify-center h-full bg-gray-200 p-6 dark:bg-neutral-800">
+                                        <span
+                                            class="self-center text-sm text-gray-800 transition duration-700 dark:text-white">Fifth
+                                            slide</span>
+                                    </div>
+                                </div>
+                                <div class="hs-carousel-slide px-1">
+                                    <div class="flex justify-center h-full bg-gray-300 p-6 dark:bg-neutral-700">
+                                        <span
+                                            class="self-center text-sm text-gray-800 transition duration-700 dark:text-white">Sixth
+                                            slide</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="button"
+                        class="hs-carousel-prev hs-carousel-disabled:opacity-50 hs-carousel-disabled:pointer-events-none absolute inset-y-0 start-0 inline-flex justify-center items-center w-[46px] h-full text-gray-800 hover:bg-gray-800/10 focus:outline-none focus:bg-gray-800/10 rounded-s-lg dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10">
+                        <span class="text-2xl" aria-hidden="true">
+                            <svg class="shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m15 18-6-6 6-6"></path>
+                            </svg>
+                        </span>
+                        <span class="sr-only">Previous</span>
+                    </button>
+                    <button type="button"
+                        class="hs-carousel-next hs-carousel-disabled:opacity-50 hs-carousel-disabled:pointer-events-none absolute inset-y-0 end-0 inline-flex justify-center items-center w-[46px] h-full text-gray-800 hover:bg-gray-800/10 focus:outline-none focus:bg-gray-800/10 rounded-e-lg dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10">
+                        <span class="sr-only">Next</span>
+                        <span class="text-2xl" aria-hidden="true">
+                            <svg class="shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m9 18 6-6-6-6"></path>
+                            </svg>
+                        </span>
+                    </button>
+                </div>
+                <!-- End Slider -->
+            </div>
+
+        </div>
     </div>
+
+    <!-- Slider -->
+
+
+
+    <!-- End Slider -->
 
 
     <!-- <div class="flex justify-center flex-col text-center">
@@ -1530,33 +1796,53 @@
                 icon.classList.remove("fa-moon");
                 icon.classList.add("fa-sun");
             }
-        } let currentIndex = 0;
-        const mulslides = document.querySelectorAll('.multi-slide');
-        const multotalSlides = mulslides.length;
-        const prevButton = document.querySelector('.multi-nav.prev');
-        const nextButton = document.querySelector('.multi-nav.next');
-        const currentSlideElement = document.getElementById('multi-current-slide');
-        const totalSlidesElement = document.getElementById('multi-total-slides');
+        } document.addEventListener('DOMContentLoaded', () => {
+            let currentIndex = 0;
+            const mulslides = document.querySelectorAll('.multi-slide');
+            const slidesPerPage = 4; // Har bir slaydda nechta rasm ko'rinishi kerak
+            const multotalSlides = mulslides.length;
+            const prevButton = document.querySelector('.multi-nav.prev');
+            const nextButton = document.querySelector('.multi-nav.next');
+            // const currentSlideElement = document.getElementById('multi-current-slide');
+            // const totalSlidesElement = document.getElementById('multi-total-slides');
 
-        function updateSlider() {
-            const offset = -(100 / (currentIndex + 1));
-            document.querySelector('.multi-slides-container').style.transform = `translateX(${offset}%)`;
-            currentSlideElement.textContent = currentIndex + 1;
-        }
+            // Slayderni yangilash funksiyasi
+            function updateSlider() {
+                // if (!currentSlideElement || !totalSlidesElement) return; // Check if elements exist
 
-        nextButton.addEventListener('click', () => {
-            currentIndex = (currentIndex + 1) % multotalSlides;
+                const offset = -(100 * currentIndex / slidesPerPage);
+                document.querySelector('.multi-slides-container').style.transform = `translateX(${offset}%)`;
+                // currentSlideElement.textContent = Math.min(currentIndex + slidesPerPage, multotalSlides); // Hozirgi rasm raqami
+            }
+
+            // Next tugmasi
+            nextButton.addEventListener('click', () => {
+                if (currentIndex + slidesPerPage < multotalSlides) {
+                    currentIndex += slidesPerPage; // Keyingi 4 ta rasmga o'tadi
+                } else {
+                    currentIndex = 0; // Oxirgi rasmga yetganda boshiga qaytadi
+                }
+                updateSlider();
+            });
+
+            // Previous tugmasi
+            prevButton.addEventListener('click', () => {
+                if (currentIndex - slidesPerPage >= 0) {
+                    currentIndex -= slidesPerPage; // Oldingi 4 ta rasmga qaytadi
+                } else {
+                    currentIndex = Math.max(multotalSlides - slidesPerPage, 0); // Boshida bo'lsa oxiriga o'tadi
+                }
+                updateSlider();
+            });
+
+            // Umumiy rasm sonini ko'rsatish
+            // if (totalSlidesElement) {
+            //     // totalSlidesElement.textContent = multotalSlides;
+            // }
+
+            // Slayderni boshlang'ich holatda yangilash
             updateSlider();
         });
-
-        prevButton.addEventListener('click', () => {
-            currentIndex = (currentIndex - 1 + multotalSlides) % multotalSlides;
-            updateSlider();
-        });
-
-        // Initialize the total slides count
-        totalSlidesElement.textContent = multotalSlides;
-
 
 
     </script>
