@@ -10,7 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
         integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"> -->
     <style>
         body {
             transition: background-color 0.3s, color 0.3s;
@@ -268,6 +268,147 @@
             font-size: 1.5em;
             background-color: transparent;
             color: inherit;
+        }
+
+
+        .slider-container {
+            display: none;
+        }
+
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: white;
+            color: gray;
+            border-radius: 50%;
+            padding: 0.5rem;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.2s;
+        }
+
+        .nav-btn:hover {
+            background-color: #f3f4f6;
+        }
+
+        /* Basic slider styling */
+        .multi-slide-slider {
+            position: relative;
+            width: 100%;
+            max-width: 1300px;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        .multi-slides-container {
+            display: flex;
+            gap: 20px;
+            transition: transform 0.5s ease;
+        }
+
+        .multi-slide {
+            width: 100%;
+            /* Adjust to fit as one full slide on small screens */
+            flex-shrink: 0;
+            position: relative;
+        }
+
+        .multi-slide img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Overlay styling */
+        .multi-overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            color: white;
+            background-color: rgba(0, 0, 0, 0.5);
+            padding: 20px;
+        }
+
+        .multi-overlay h2 {
+            margin: 0;
+        }
+
+        .multi-overlay p {
+            margin: 10px 0;
+        }
+
+        .multi-shop-link {
+            color: #fff;
+            text-decoration: none;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        /* Navigation buttons */
+        .multi-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+
+        .multi-nav.prev {
+            left: 10px;
+        }
+
+        .multi-nav.next {
+            right: 10px;
+        }
+
+        /* Responsive Layout */
+        @media (min-width: 768px) {
+            .multi-slide {
+                width: 25%;
+                /* Show 4 slides */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .multi-slide {
+                width: 33.33%;
+                /* Show 3 slides */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .multi-slide {
+                width: 50%;
+                /* Show 2 slides */
+            }
+        }
+
+        @media (max-width: 375px) {
+            .multi-slide {
+                width: 100%;
+                /* Show 1 slide */
+            }
+        }
+
+        /* Slider Counter */
+        .multi-counter {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            color: white;
+            font-size: 18px;
         }
     </style>
 </head>
@@ -1192,41 +1333,75 @@
             <span class="mt-2 dark:text-neutral-200">Jackets</span>
         </a>
     </div>
-    <div class="flex justify-center flex-col text-center">
-        <h3 class="">Trending now</h3>
-        <div class="border-b border-gray-200 dark:border-neutral-700">
-            <nav class="flex gap-x-1" aria-label="Tabs" role="tablist" aria-orientation="horizontal">
-                <button type="button"
-                    class="hs-tab-active:bg-white hs-tab-active:border-b-transparent hs-tab-active:text-blue-600 dark:hs-tab-active:bg-neutral-800 dark:hs-tab-active:border-b-gray-800 dark:hs-tab-active:text-white -mb-px py-3 px-4 inline-flex items-center gap-x-2 bg-gray-50 text-sm font-medium text-center border text-gray-500 rounded-t-lg hover:text-gray-700 focus:outline-none focus:text-gray-700 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200 active"
-                    id="card-type-tab-item-1" aria-selected="true" data-hs-tab="#card-type-tab-preview"
-                    aria-controls="card-type-tab-preview" role="tab">
-                    Tab 1
-                </button>
-                <button type="button"
-                    class="hs-tab-active:bg-white hs-tab-active:border-b-transparent hs-tab-active:text-blue-600 dark:hs-tab-active:bg-neutral-800 dark:hs-tab-active:border-b-gray-800 dark:hs-tab-active:text-white -mb-px py-3 px-4 inline-flex items-center gap-x-2 bg-gray-50 text-sm font-medium text-center border text-gray-500 rounded-t-lg hover:text-gray-700 focus:outline-none focus:text-gray-700 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:border-neutral-700 dark:text-neutral-400 dark:hover:text-neutral-200 dark:focus:text-neutral-200"
-                    id="card-type-tab-item-2" aria-selected="false" data-hs-tab="#card-type-tab-2"
-                    aria-controls="card-type-tab-2" role="tab">
-                    Tab 2
-                </button>
-
-            </nav>
+    <div class="multi-slide-slider">
+        <!-- Slides container -->
+        <div class="multi-slides-container">
+            <!-- Slide 1 -->
+            <div class="multi-slide active">
+                <img src="https://images.unsplash.com/photo-1713276753136-c386da1ec670?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Slide 1" />
+                <div class="multi-overlay">
+                    <h2>Winter Warmers</h2>
+                    <p>Stay cozy with our winter collection.</p>
+                    <a href="#" class="multi-shop-link">Shop winter clothing</a>
+                </div>
+            </div>
+            <!-- Slide 2 -->
+            <div class="multi-slide">
+                <img src="https://images.unsplash.com/photo-1713276753136-c386da1ec670?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Slide 2" />
+                <div class="multi-overlay">
+                    <h2>Summer Essentials</h2>
+                    <p>Enjoy the sun with our summer collection.</p>
+                    <a href="#" class="multi-shop-link">Shop summer clothing</a>
+                </div>
+            </div>
+            <!-- Slide 3 -->
+            <div class="multi-slide">
+                <img src="https://images.unsplash.com/photo-1713276753136-c386da1ec670?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Slide 3" />
+                <div class="multi-overlay">
+                    <h2>Autumn Comforts</h2>
+                    <p>Get cozy with our autumn collection.</p>
+                    <a href="#" class="multi-shop-link">Shop autumn clothing</a>
+                </div>
+            </div>
+            <!-- Slide 4 -->
+            <div class="multi-slide">
+                <img src="https://images.unsplash.com/photo-1713276753136-c386da1ec670?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="Slide 4" />
+                <div class="multi-overlay">
+                    <h2>Spring Blossoms</h2>
+                    <p>Freshen up with our spring collection.</p>
+                    <a href="#" class="multi-shop-link">Shop spring clothing</a>
+                </div>
+            </div>
         </div>
 
-        <div class="mt-3">
-            <div id="card-type-tab-preview" role="tabpanel" aria-labelledby="card-type-tab-item-1">
-                <p class="text-gray-500 dark:text-neutral-400">
-                    This is the <em class="font-semibold text-gray-800 dark:text-neutral-200">first</em> item's tab
-                    body.
-                </p>
-            </div>
-            <div id="card-type-tab-2" class="hidden" role="tabpanel" aria-labelledby="card-type-tab-item-2">
-                <p class="text-gray-500 dark:text-neutral-400">
-                    This is the <em class="font-semibold text-gray-800 dark:text-neutral-200">second</em> item's tab
-                    body.
-                </p>
-            </div>
-        </div>
+        <!-- Navigation buttons -->
+        <button class="multi-nav prev">&#10094;</button>
+        <button class="multi-nav next">&#10095;</button>
+
     </div>
+
+
+    <!-- <div class="flex justify-center flex-col text-center">
+        <h4>
+            The better way to shop with Preline top-products
+        </h4>
+        <div class="grid grid-rows-3 grid-flow-col gap-4">
+            <div class="row-span-3 ...">
+                <img src="https://images.unsplash.com/photo-1708443683276-8a3eb30faef2?q=80&w=560&h=560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt="">
+            </div>
+            <div class="col-span-2 ..."><img
+                    src="https://images.unsplash.com/photo-1627225924765-552d49cf47ad?q=80&w=560&h=560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt=""></div>
+            <div class="row-span-2 col-span-2 ..."><img
+                    src="https://images.unsplash.com/photo-1708443683198-a2b77a54c36e?q=80&w=560&h=560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                    alt=""></div>
+        </div>
+    </div> -->
     <!-- Footer -->
     <footer class="footer py-8 mt-8 border-t border-gray-300 dark:border-gray-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -1355,7 +1530,35 @@
                 icon.classList.remove("fa-moon");
                 icon.classList.add("fa-sun");
             }
+        } let currentIndex = 0;
+        const mulslides = document.querySelectorAll('.multi-slide');
+        const multotalSlides = mulslides.length;
+        const prevButton = document.querySelector('.multi-nav.prev');
+        const nextButton = document.querySelector('.multi-nav.next');
+        const currentSlideElement = document.getElementById('multi-current-slide');
+        const totalSlidesElement = document.getElementById('multi-total-slides');
+
+        function updateSlider() {
+            const offset = -(100 / (currentIndex + 1));
+            document.querySelector('.multi-slides-container').style.transform = `translateX(${offset}%)`;
+            currentSlideElement.textContent = currentIndex + 1;
         }
+
+        nextButton.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % multotalSlides;
+            updateSlider();
+        });
+
+        prevButton.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + multotalSlides) % multotalSlides;
+            updateSlider();
+        });
+
+        // Initialize the total slides count
+        totalSlidesElement.textContent = multotalSlides;
+
+
+
     </script>
 
     <!-- Font Awesome for Icons -->
