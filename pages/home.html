@@ -356,6 +356,7 @@
                                 <path d="M18 6 6 18" />
                                 <path d="m6 6 12 12" />
                             </svg>
+
                         </button>
 
 
@@ -889,13 +890,14 @@
                                                     class="sr-only">Label</label>
                                                 <div class="relative flex rounded-lg shadow-sm w-full gap-1">
                                                     <input type="text"
+                                                    style="padding-left: 40px;"
                                                         id="hs-trailing-button-add-on-with-icon-and-button"
                                                         name="hs-trailing-button-add-on-with-icon-and-button"
                                                         class="px-8 py-3 pl-10 pr-4 block w-full rounded-lg text-sm focus:z-10 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
                                                         placeholder="Search">
                                                     <div
                                                         class="absolute inset-y-0 start-0 flex items-center pointer-events-none z-20 pl-4">
-                                                        <svg class="ms-4 mx-4 shrink-0 size-4 text-gray-400 dark:text-neutral-500"
+                                                        <svg class=" shrink-0 size-4 text-gray-400 dark:text-neutral-500"
                                                             xmlns="http://www.w3.org/2000/svg" width="24" height="24"
                                                             viewBox="0 0 24 24" fill="none" stroke="currentColor"
                                                             stroke-width="2" stroke-linecap="round"
@@ -1132,32 +1134,40 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="hs-dropdown [--auto-close:inside] [--placement:bottom-right] relative s2k2k">
+                            <div
+                                class="hs-dropdown [--auto-close:inside] [--placement:bottom-right] relative flex items-center space-x-4">
+                                <!-- Button 1 -->
                                 <button id="hs-pro-dnnd" type="button"
-                                    class="relative h21yx s2k2k dry15 items-center dsp0o fs5ha lli30 p9tun um5nz r0fp5 ip2jr dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                                    class="relative flex items-center justify-center w-10 h-10 rounded-full bg-transparent dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
                                     aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
-                                    <svg class="h21yx ufena" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round">
+                                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
                                         <path
                                             d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z">
                                         </path>
                                     </svg>
                                 </button>
-                                <!-- End Favorites Button Icon -->
 
-                                <!-- Favorites Dropdown -->
+                                <!-- Button 2 -->
                                 <button type="button"
-                                    class="relative h21yx s2k2k dry15 items-center dsp0o fs5ha lli30 p9tun um5nz r0fp5 ip2jr dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
+                                    class="relative flex items-center justify-center w-10 h-10 rounded-full bg-transparent dark:text-neutral-200 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800"
                                     data-hs-overlay="#hs-pro-shco">
-                                    <svg class="h21yx ufena" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
-                                        stroke-linecap="round" stroke-linejoin="round">
+                                    <svg class="w-6 h-6" xmlns="http://www.w3.org/2000/svg" fill="none"
+                                        stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                                        stroke-linejoin="round">
                                         <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path>
                                         <path d="M3 6h18"></path>
                                         <path d="M16 10a4 4 0 0 1-8 0"></path>
                                     </svg>
                                 </button>
+
+                                <!-- Avatar and Text -->
+                                <a href="/pages/listing-grid-with-hero.html" class="flex items-center space-x-2">
+                                    <img width="30px" class="rounded-full"
+                                        src="https://images.unsplash.com/photo-1706550632260-ced24a56f19a?q=80&w=180&h=180&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                        alt="Avatar">
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -1233,47 +1243,631 @@
         </a>
     </div>
     <!--slider and tabs  -->
-    <div class="flex justify-center w-full flex-col" style="height: 600px;">
-        <!-- Tailwind Modal Structure -->
-        <div id="modal" class="fixed inset-0 hidden bg-black bg-opacity-50 flex items-center justify-center">
-            <div class="bg-white p-6 rounded-lg w-3/4 md:w-1/2 lg:w-1/3">
-                <button id="closeModal"
-                    class="text-gray-500 hover:text-gray-700 absolute top-3 right-3">&times;</button>
-                <h2 class="text-xl font-bold mb-4">Product Details</h2>
-                <p>Details about the selected product will go here.</p>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
+    <style>
+        /* Global Styles */
+        body {
+            width: 100%;
+            max-width: 1300px;
+            margin: auto;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .filters {
+            justify-content: center;
+            display: flex;
+            width: 100%;
+            height: 100%;
+            margin-bottom: 20px;
+        }
+
+        .filters-in {
+            margin-bottom: 20px;
+            background-color: #333;
+            padding: 5px;
+            border-radius: 5px;
+        }
+
+        .filters button {
+            color: #fff;
+            border: none;
+            padding: 10px 40px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .filters button:hover {
+            background-color: #555;
+        }
+
+        .filters .active {
+            background-color: #555;
+        }
+
+        #carousel {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            position: relative;
+        }
+
+        .card {
+            flex: 0 0 25%;
+            max-width: 25%;
+            padding: 10px;
+            box-sizing: border-box;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .card img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .card .info {
+            margin-top: 10px;
+            text-align: left;
+        }
+
+        .card .info h4 {
+            font-size: 16px;
+            margin-bottom: 5px;
+        }
+
+        .card .info p {
+            font-size: 14px;
+            color: #666;
+        }
+
+        .card .trending {
+            position: absolute;
+            z-index: 11;
+            top: 20px;
+            left: 20px;
+            background-color: #333;
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 10px;
+            font-size: 12px;
+        }
+
+        .card .wishlist {
+            position: absolute;
+            top: 20px;
+            z-index: 11;
+            right: 20px;
+            background-color: #fff;
+            padding: 5px 7px;
+            border-radius: 50%;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+        }
+
+        .card .wishlist i {
+            color: #ff0000;
+            font-size: 16px;
+        }
+
+        .controls {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .controls button {
+            background-color: #fff;
+            color: #333;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 20x;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .controls button:hover {
+            background-color: #555;
+        }
+
+        .card {
+            flex: 0 0 25%;
+            max-width: 25%;
+            padding: 10px;
+            box-sizing: border-box;
+            position: relative;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Hover effect */
+        .card:hover .view-overlay {
+            opacity: 1;
+        }
+
+        .view-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            font-size: 10px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            border-radius: 10px;
+            z-index: 2;
+        }
+
+        .view-overlay-in {
+            display: flex;
+            padding: 5px;
+            gap: 8px;
+            background-color: white;
+            justify-content: center;
+            align-items: center;
+            border-radius: 10px;
+            transform: translateY(600%);
+            position: absolute;
+            top: 0;
+
+        }
+
+        /* Controls placement */
+        .controls {
+            position: relative;
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        #prevBtn {
+            position: absolute;
+            top: 50%;
+            transform: translateX(-10%);
+            transform: translateY(240%);
+            z-index: 10;
+        }
+
+        #nextBtn {
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateX(-100%);
+            transform: translateY(240%);
+            z-index: 10;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 100;
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        .modal img {
+            width: 100%;
+            max-width: 500px;
+            height: auto;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 99;
+        }
+
+        @media (max-width: 768px) {
+            .card {
+                flex: 0 0 50%;
+                max-width: 50%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .card {
+                flex: 0 0 100%;
+                max-width: 100%;
+            }
+        }
+    </style>
+
+    <div class="container">
+        <div class="filters">
+            <div class="filters-in">
+                <button id="menBtn">Men</button>
+                <button id="womenBtn">Women</button>
             </div>
         </div>
 
-        <!-- Carousel HTML -->
-        <div class="flex justify-center w-full flex-col" style="height: 600px;">
-            <div class="my-5 w-full justify-center">
-                <button id="menBtn" class="btn bg-blue-500 text-white px-4 py-2 mr-2">Men</button>
-                <button id="womenBtn" class="btn bg-pink-500 text-white px-4 py-2">Women</button>
+        <div class="controls">
+            <button id="prevBtn">&#8249; </button>
+            <button id="nextBtn">&#8250;</button>
+        </div>
+        <div class="modal-overlay"></div>
+        <div class="modal" id="imageModal">
+            <img id="modalImage" src="" alt="Full View">
+        </div>
+        <div id="carousel"></div>
+    </div>
+    <div class="text-center w-full mt-5">
+        <a href="">Shop all women </a>
+        <button id="">&#8250;</button>
+    </div>
+    <style>
+        .category-card {
+            display: grid;
+            grid-template-columns: 3fr 2fr;
+            /* Left larger, right smaller */
+            gap: 10px;
+            width: 100%;
+            max-width: 1300px;
+            margin: auto;
+            /* Gap between columns */
+            align-items: start;
+            /* background-color: #1a1a1a; */
+            /* Optional: card background */
+            padding: 5px 5px 20px 5px;
+            border-radius: 4px;
+            margin-bottom: 20px;
+            /* Optional: rounded corners */
+        }
+
+        .large-image img {
+            width: 100%;
+            height: 350px;
+            border-radius: 8px;
+            /* Optional: for smooth edges */
+            object-fit: cover;
+            /* Maintains image ratio */
+        }
+
+        .small-images {
+            display: grid;
+            height: 100%;
+            grid-template-rows: 1fr 1fr;
+            /* Two rows for two images */
+            gap: 10px;
+        }
+
+        .small-image img {
+            width: 100%;
+            height: 100%;
+            border-radius: 8px;
+            object-fit: cover;
+        }
+
+        .category-details {
+            text-align: center;
+            margin-top: 15px;
+        }
+
+        .category-details h3 {
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .category-details p {
+            color: #aaaaaa;
+        }
+
+        .category-details a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        .category-card-box {
+            border-radius: 8px;
+            padding: 2px 2px 20px 2px;
+            border: 1px solid #333;
+        }
+
+        .category-details a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <div class="text-center" style="width: 100%;  max-width: 1300px;
+    margin: auto;">
+        <h1 class="dark:text-neutral-200" style="font-size: 25px;margin-top: 50px; font-weight: bold;">
+            The better way to shop with Preline <br> top-products
+        </h1>
+        <div class="flex sm:flex-row gap-x-4 mt-5">
+            <div class="category-card-box">
+                <div class="category-card">
+                    <div class="large-image">
+                        <img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?q=80&w=560&h=560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Main Image" />
+                    </div>
+                    <div class="small-images">
+                        <div class="small-image">
+                            <img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?q=80&w=560&h=560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Second Image" />
+                        </div>
+                        <div class="small-image">
+                            <img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?q=80&w=560&h=560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Third Image" />
+                        </div>
+                    </div>
+                </div>
+                <div class="category-details">
+                    <h3>Category Name</h3>
+                    <p>Starting from $Price</p>
+                    <a href="#" style="text-decoration: underline; padding-bottom: 2px; gap: 10x;">View all</a>
+                </div>
+            </div>
+            <div class="category-card-box">
+                <div class="category-card">
+                    <div class="large-image">
+                        <img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?q=80&w=560&h=560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Main Image" />
+                    </div>
+                    <div class="small-images">
+                        <div class="small-image">
+                            <img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?q=80&w=560&h=560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Second Image" />
+                        </div>
+                        <div class="small-image">
+                            <img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?q=80&w=560&h=560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Third Image" />
+                        </div>
+                    </div>
+                </div>
+                <div class="category-details">
+                    <h3>Category Name</h3>
+                    <p>Starting from $Price</p>
+                    <a href="#" style="text-decoration: underline; padding-bottom: 2px; gap: 10x;">View all</a>
+                </div>
+            </div>
+            <div class="category-card-box">
+                <div class="category-card">
+                    <div class="large-image">
+                        <img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?q=80&w=560&h=560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                            alt="Main Image" />
+                    </div>
+                    <div class="small-images">
+                        <div class="small-image">
+                            <img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?q=80&w=560&h=560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Second Image" />
+                        </div>
+                        <div class="small-image">
+                            <img src="https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03?q=80&w=560&h=560&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                alt="Third Image" />
+                        </div>
+                    </div>
+                </div>
+                <div class="category-details">
+                    <h3>Category Name</h3>
+                    <p>Starting from $Price</p>
+                    <a href="#" style="text-decoration: underline; padding-bottom: 2px; gap: 10x;">View all</a>
+                </div>
             </div>
 
-            <div id="carouselContainer" class="relative overflow-hidden w-full max-w-4xl">
-                <div id="carousel" class="flex transition-transform duration-300"></div>
 
-                <!-- Prev and Next buttons -->
-                <button id="prevBtn"
-                    class="absolute top-1/2 left-0 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-r-md">
-                    <i class="fas fa-chevron-left"></i>
-                </button>
-                <button id="nextBtn"
-                    class="absolute top-1/2 right-0 transform -translate-y-1/2 bg-gray-700 text-white p-2 rounded-l-md">
-                    <i class="fas fa-chevron-right"></i>
-                </button>
-            </div>
         </div>
 
     </div>
-    <!-- Slider -->
+    <style>
+        .partners {
+            width: 100%;
+            max-width: 1300px;
+            margin: auto;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            gap: 10px;
+            padding: 10px 50px;
+        }
+
+        .partners h1 {
+            font-size: 30px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        .scroll-box {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding: 10px;
+            scrollbar-width: thin;
+            scrollbar-color: #888 #444;
+        }
+
+        .scroll-box::-webkit-scrollbar {
+            height: 8px;
+        }
+
+        .scroll-box::-webkit-scrollbar-thumb {
+            background-color: #888;
+            border-radius: 4px;
+        }
+
+        .scroll-box::-webkit-scrollbar-track {
+            background-color: #444;
+        }
+
+        .image-box {
+            flex: 0 0 auto;
+            width: 150px;
+            height: 150px;
+            background-color: #333;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 14px;
+        }
+
+        .info-section {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .info-box {
+            flex: 1;
+            margin: 0 10px;
+            text-align: center;
+        }
+
+        .info-box .icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .info-box h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .info-box p {
+            font-size: 14px;
+            color: #aaa;
+        }
+
+        .image-box {
+            min-width: 200px;
+            height: 200px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .image-box:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        @media screen and (max-width:1080px) {
+            .partners h1 {
+                font-size: 25px;
+            }
+        }
+
+        @media screen and (max-width:890px) {
+            .partners h1 {
+                font-size: 20px;
+            }
+
+            .partners {
+                padding: 10px;
+            }
+        }
+
+        @media screen and (max-width:0px) {
+            .partners h1 {
+                font-size: 20px;
+            }
+
+            .partners {
+                padding: 10px;
+            }
+        }
+    </style>
+    <div class="partners" style="margin-top: 40px; flex-wrap: wrap;">
+        <h1>1 Partner</h1>
+        <h1>2 Partner</h1>
+        <h1>3 Partner</h1>
+        <h1>4 Partner</h1>
+        <h1>5 Partner</h1>
+        <h1>6 Partner</h1>
+    </div>
+    <div class="container">
+        <h2>Shoes by classics</h2>
+        <!-- Scrollable box -->
+        <div class="scroll-box">
+            <div class="image-box">AIR JORDAN</div>
+            <div class="image-box">AIR JORDAN 1</div>
+            <div class="image-box">DUNK</div>
+            <div class="image-box">AIR FORCE 1</div>
+            <!-- <div class="image-box">BLAZER</div> -->
+            <div class="image-box">ADIDAS</div>
+            <!-- Add more image-box divs if needed -->
+        </div>
+
+        <!-- Underneath section -->
+        <div class="info-section">
+            <div class="info-box">
+                <span class="icon">🔒</span>
+                <h3>Secure checkout</h3>
+                <p>Shop with confidence using our encrypted payment system that protects your sensitive information.</p>
+            </div>
+            <div class="info-box">
+                <span class="icon">🚚</span>
+                <h3>Free shipping</h3>
+                <p>Enjoy complimentary delivery on all orders, with no minimum purchase required.</p>
+            </div>
+            <div class="info-box">
+                <span class="icon">🔄</span>
+                <h3>30 days return</h3>
+                <p>Not satisfied? Return any item within 30 days of purchase for a full refund or exchange.</p>
+            </div>
+        </div>
+    </div>
 
     <!-- End Slider -->
     <footer class="footer py-8 mt-8 border-t border-gray-300 dark:border-gray-700">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div>
-                <h2 class="text-lg font-semibold ">Subscribe & get 10% off</h2>
+                <h2 class="">Subscribe & get 10% off</h2>
                 <form class="flex space-x-2">
                     <input type="email" placeholder="Enter email address"
                         class="px-4 py-2 rounded bg-gray-100 dark:bg-gray-700 text-gray-800 dark:text-gray-300 focus:outline-none">
@@ -1281,7 +1875,7 @@
                         up</button>
                 </form>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 mt-5 md:grid-cols-4 gap-8">
                 <!-- Subscribe Section -->
                 <!-- Help Section -->
                 <div>
@@ -1314,18 +1908,22 @@
                         <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Careers</a></li>
                     </ul>
                 </div>
-                <div>
-                    <h3 class="text-lg font-semibold mb-4">Help</h3>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Help Center</a></li>
-                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">FAQs</a></li>
-                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Subscription</a></li>
-                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Order Status</a></li>
-                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Returns & Exchanges</a>
-                        </li>
-                        <li><a href="#" class="hover:text-gray-500 dark:hover:text-gray-400">Contact Us</a></li>
-                    </ul>
+                <div class="flex flex-col">
+                    <h3 class="text-lg font-semibold mb-4"><i class="fas fa-location"></i> Location <button
+                            style="font-size: 20px;">&#8250;</button>
+                    </h3>
+                    <h3 class="text-lg font-semibold mb-4"><i class="fas fa-map"></i> United Kingdom <button
+                            style="font-size: 20px;">&#8250;</button></h3>
+                    <h3 class="text-lg font-semibold mb-4"><i class="fas fa-message"></i> Send us feedback <button
+                            style="font-size: 20px;">&#8250;</button></h3>
+                    <h1>Stay connected</h1>
+                    <div class="flex flex-row gap-x-4 mt-4">
+                        <i class="fas fa-instagram"></i>
+                        <i class="fas fa-instagram"></i>
+                        <i class="fas fa-instagram"></i>
+                    </div>
                 </div>
+
             </div>
 
             <!-- Bottom Footer -->
@@ -1396,104 +1994,135 @@
                 icon.classList.add("fa-sun");
             }
         }
-        // JavaScript
-        const menData = [
-            { image: 'https://images.unsplash.com/photo-1509021436665-8f07dbf5bf1d', title: 'Camo Blend Jacket', category: 'Men\'s Jackets', price: '$140' },
-            // Add more data as needed
-        ];
-
-        const womenData = [
-            { image: 'https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb', title: 'Floral Dress', category: 'Women\'s Dresses', price: '$120' },
-            // Add more data as needed
-        ];
-
-        let currentData = menData;
-        let currentIndex = 0;
-        const itemsPerPage = 4;
         const carousel = document.getElementById('carousel');
-        const menBtn = document.getElementById('menBtn');
-        const womenBtn = document.getElementById('womenBtn');
         const prevBtn = document.getElementById('prevBtn');
         const nextBtn = document.getElementById('nextBtn');
-        const modal = document.getElementById('modal');
-        const closeModal = document.getElementById('closeModal');
+        const womenBtn = document.getElementById('womenBtn');
+        const menBtn = document.getElementById('menBtn');
+        const modalOverlay = document.querySelector('.modal-overlay');
+        const modal = document.getElementById('imageModal');
+        const modalImage = document.getElementById('modalImage');
+        let currentData = []; // Filtered products (based on selection)
+        let currentIndex = 0;
+        const itemsPerPage = 4;
 
-        function renderCards(data) {
+        // Example product data
+        const productData = [
+            { image: 'https://images.unsplash.com/photo-1654512697704-89cf740323a3?q=80&w=560&h=780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', sub_title: "Sub title stay there", title: 'Product 1', price: '25.99', trending: true, category: 'Women' },
+            { image: 'https://images.unsplash.com/photo-1654512697704-89cf740323a3?q=80&w=560&h=780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', sub_title: "Sub title stay there", title: 'Product 1', price: '25.99', trending: true, category: 'Women' },
+            { image: 'https://images.unsplash.com/photo-1654512697704-89cf740323a3?q=80&w=560&h=780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', sub_title: "Sub title stay there", title: 'Product 1', price: '25.99', trending: true, category: 'Women' },
+            { image: 'https://images.unsplash.com/photo-1708443683202-a5be0ced5b8b?q=80&w=560&h=780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', sub_title: "Sub title stay there", title: 'Product 2', price: '30.00', trending: false, category: 'Men' },
+            { image: 'https://images.unsplash.com/photo-1708443683202-a5be0ced5b8b?q=80&w=560&h=780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', sub_title: "Sub title stay there", title: 'Product 2', price: '30.00', trending: false, category: 'Men' },
+            { image: 'https://images.unsplash.com/photo-1585487000143-9bcec9b8e483?q=80&w=560&h=780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', sub_title: "Sub title stay there", title: 'Product 3', price: '19.99', trending: true, category: 'Women' },
+            { image: 'https://images.unsplash.com/photo-1708443683334-1e41c52f33ac?q=80&w=560&h=780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', sub_title: "Sub title stay there", title: 'Product 4', price: '45.50', trending: false, category: 'Men' },
+            { image: 'https://images.unsplash.com/photo-1585487000143-9bcec9b8e483?q=80&w=560&h=780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', sub_title: "Sub title stay there", title: 'Product 5', price: '12.00', trending: true, category: 'Women' },
+            // Add more items as needed
+            { image: 'https://images.unsplash.com/photo-1708443683198-a2b77a54c36e?q=80&w=560&h=780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', sub_title: "Sub title stay there", title: 'Product 6', price: '60.00', trending: false, category: 'Men' },
+            { image: 'https://images.unsplash.com/photo-1708443683198-a2b77a54c36e?q=80&w=560&h=780&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D', sub_title: "Sub title stay there", title: 'Product 6', price: '60.00', trending: false, category: 'Men' },
+        ];
+
+        // Initialize the carousel
+        function initCarousel() {
+            currentData = productData; // Assign all products initially
+            renderCards();
+        }
+        // Close modal when clicking outside or on overlay
+        modalOverlay.addEventListener('click', () => {
+            modal.style.display = 'none';
+            modalOverlay.style.display = 'none';
+        });
+
+        // Also close modal on ESC key press
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                modal.style.display = 'none';
+                modalOverlay.style.display = 'none';
+            }
+        });
+        // Render visible cards
+        // Render Cards
+        function renderCards() {
             carousel.innerHTML = '';
-            data.forEach(item => {
+            const visibleData = currentData.slice(currentIndex, currentIndex + itemsPerPage);
+
+            visibleData.forEach(item => {
                 const card = document.createElement('div');
-                card.className = 'card bg-white rounded-lg shadow-md p-4 m-2 w-1/4 flex-shrink-0 relative group';
+                card.className = 'card';
                 card.innerHTML = `
-            <!-- Trending Label -->
-            <div class="absolute top-2 left-2 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">Trending</div>
-            <!-- Like Button -->
-            <div class="absolute top-2 right-2 text-gray-600 hover:text-red-500 cursor-pointer">
-                <i class="fas fa-heart"></i>
+            <div class="view-overlay">
+                <div class="view-overlay-in">
+                    <i class="fa fa-eye"></i>Quick view
+                </div>
             </div>
-            <!-- Image -->
-            <img src="${item.image}" alt="${item.title}" class="w-full h-40 object-cover rounded-lg mb-3">
-            <!-- View Icon on Hover -->
-            <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 cursor-pointer">
-                <i class="fas fa-eye text-white text-2xl" onclick="openModal()"></i>
-            </div>
-            <!-- Product Details -->
-            <div class="details mt-2">
-                <h3 class="font-bold text-lg">${item.title}</h3>
-                <p>${item.category}</p>
-                <p class="text-green-600 font-bold">${item.price}</p>
+            <img src="${item.image}" alt="${item.title}">
+            ${item.trending ? '<div class="trending">🔥Trending</div>' : ''}
+            <div class="wishlist"><i class="fa fa-heart"></i></div>
+            <div class="info">
+                <h4>${item.sub_title}</h4>
+                <h4>${item.title}</h4>
+                <p>$${item.price}</p>
             </div>
         `;
+
+                // Add click event for image modal
+                card.querySelector('img').addEventListener('click', () => {
+                    modalImage.src = item.image;
+                    modal.style.display = 'block';
+                    modalOverlay.style.display = 'block';
+                });
+
                 carousel.appendChild(card);
             });
-        }
 
-        function updateCarousel() {
-            const offset = currentIndex * -100 / itemsPerPage;
-            carousel.style.transform = `translateX(${offset}%)`;
-
-            // Update button states
+            // Disable buttons if at the start or end of the list
             prevBtn.disabled = currentIndex === 0;
             nextBtn.disabled = currentIndex + itemsPerPage >= currentData.length;
         }
 
-        function handleNavigation(direction) {
-            if (direction === 'next' && currentIndex + itemsPerPage < currentData.length) {
-                currentIndex++;
-            } else if (direction === 'prev' && currentIndex > 0) {
+        // Handle navigation buttons
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) {
                 currentIndex--;
+                renderCards();
             }
-            updateCarousel();
-        }
-
-        function openModal() {
-            modal.classList.remove('hidden');
-        }
-
-        function closeModalHandler() {
-            modal.classList.add('hidden');
-        }
-
-        menBtn.addEventListener('click', () => {
-            currentData = menData;
-            currentIndex = 0;
-            renderCards(currentData);
-            updateCarousel();
         });
+
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex + itemsPerPage < currentData.length) {
+                currentIndex++;
+                renderCards();
+            }
+        });
+
+        // Filter functions
+        function filterData(category) {
+            if (category === 'All') {
+                currentData = productData;
+            } else {
+                currentData = productData.filter(item => item.category === category);
+            }
+            currentIndex = 0;
+            renderCards();
+        }
 
         womenBtn.addEventListener('click', () => {
-            currentData = womenData;
-            currentIndex = 0;
-            renderCards(currentData);
-            updateCarousel();
+            setActiveButton(womenBtn);
+            filterData('Women');
         });
 
-        prevBtn.addEventListener('click', () => handleNavigation('prev'));
-        nextBtn.addEventListener('click', () => handleNavigation('next'));
-        closeModal.addEventListener('click', closeModalHandler);
+        menBtn.addEventListener('click', () => {
+            setActiveButton(menBtn);
+            filterData('Men');
+        });
 
-        // Initial load
-        renderCards(currentData);
-        updateCarousel();
+        // Set active button style
+        function setActiveButton(activeButton) {
+            [womenBtn, menBtn].forEach(button => button.classList.remove('active'));
+            activeButton.classList.add('active');
+        }
+
+        // Initialize on page load
+        initCarousel();
 
 
     </script>
