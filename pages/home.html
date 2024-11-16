@@ -1604,13 +1604,19 @@
         .category-details a:hover {
             text-decoration: underline;
         }
+        @media screen and (max-width:750px){
+            .card-images{
+                display: flex;
+                flex-wrap: wrap;
+            }
+        }
     </style>
     <div class="text-center" style="width: 100%;  max-width: 1300px;
     margin: auto;">
         <h1 class="dark:text-neutral-200" style="font-size: 25px;margin-top: 50px; font-weight: bold;">
             The better way to shop with Preline <br> top-products
         </h1>
-        <div class="flex sm:flex-row gap-x-4 mt-5" style="flex-wrap: wrap;">
+        <div class="flex sm:flex-row gap-x-4 mt-5 card-images" >
             <div class="category-card-box">
                 <div class="category-card">
                     <div class="large-image">
